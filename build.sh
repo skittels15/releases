@@ -24,7 +24,7 @@ elif [ "${ccache}" == "true" ] && [ -z "${ccache_size}" ]; then
     exit 1
 fi
 lunch "${rom_vendor_name}_${device}-${buildtype}"
-rm "${outdir}/*$(date +%Y)*.zip*"
+rm "${outdir}"/*$(date +%Y)*.zip*
 if [ "${clean}" == "clean" ]; then
     mka clean
     mka clobber
@@ -36,7 +36,7 @@ BUILD_END=$(date +"%s")
 BUILD_DIFF=$((BUILD_END - BUILD_START))
 
 if [ "${generate_incremental}" == "true" ]; then
-    if [ -e "${ROM_DIR}/*target_files*.zip" ]; then
+    if [ -e "${ROM_DIR}"/*target_files*.zip ]; then
         export old_target_files_exists=true
         export old_target_files_path=$(ls "${ROM_DIR}"/*target_files*.zip | tail -n -1)
     else
@@ -49,7 +49,7 @@ if [ "${generate_incremental}" == "true" ]; then
     fi
     cp "${new_target_files_path}" "${ROM_DIR}"
 fi
-export finalzip_path=$(ls "${outdir}/*$(date +%Y)*.zip" | tail -n -1)
+export finalzip_path=$(ls "${outdir}"/*$(date +%Y)*.zip | tail -n -1)
 if [ "${upload_recovery}" == "true" ]; then
     export img_path=$(ls "${outdir}"/recovery.img | tail -n -1)
 fi
