@@ -15,7 +15,7 @@ export rom_vendor_name="baikalos"
 export branch="r11.1"
 export bacon="bacon"
 export buildtype="user"
-export clean="clean"
+export clean="installclean"
 export generate_incremental="false"
 export upload_recovery="false"
 
