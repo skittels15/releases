@@ -26,4 +26,4 @@ export jenkins="false"
 
 export release_repo=""
 
-export timezone="UTC"
+export timezone="MSK"
