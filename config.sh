@@ -26,4 +26,4 @@ export jenkins="true"
 
 export release_repo="skittels15/releases"
 
-export timezone="UTC"
+export timezone="MSK"
