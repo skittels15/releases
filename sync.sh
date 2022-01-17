@@ -24,11 +24,11 @@ SYNC_END=$(date +"%s")
 SYNC_DIFF=$((SYNC_END - SYNC_START))
 if [ "${syncsuccessful}" == "0" ]; then
     echo "Sync completed successfully in $((SYNC_DIFF / 60)) minute(s) and $((SYNC_DIFF % 60)) seconds"
-    telegram -N -M "Синхронизация завершена успешно через $((SYNC_DIFF / 60)) минут(ы) $((SYNC_DIFF % 60)) секунд(ы)"
+    telegram -N -M "Синхронизация завершена успешно за $((SYNC_DIFF / 60)) минут(ы) $((SYNC_DIFF % 60)) секунд(ы)"
     source "${my_dir}/build.sh"
 else
     echo "Sync failed in $((SYNC_DIFF / 60)) minute(s) and $((SYNC_DIFF % 60)) seconds"
-    telegram -N -M "Синхронизация завершена с ошибкой через $((SYNC_DIFF / 60)) минут(ы) $((SYNC_DIFF % 60)) секунд(ы)"
+    telegram -N -M "Синхронизация завершена с ошибкой за $((SYNC_DIFF / 60)) минут(ы) $((SYNC_DIFF % 60)) секунд(ы)"
     curl --data parse_mode=HTML --data chat_id=$TELEGRAM_CHAT --data sticker=CAADBQADGgEAAixuhBPbSa3YLUZ8DBYE --request POST https://api.telegram.org/bot$TELEGRAM_TOKEN/sendSticker
     exit 1
 fi
