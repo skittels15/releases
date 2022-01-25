@@ -6,7 +6,7 @@ export GITHUB_EMAIL="skittels1510@mail.ru"
 export device="olives"
 
 export ROM="Komodo-OS"
-export ROM_DIR="${WORKSPACE}/komodo"
+export ROM_DIR="${WORKSPACE}/../komodo"
 export ROM_VERSION="4.0"
 export official="false"
 export local_manifest_url="https://raw.githubusercontent.com/skittels15/manifests/master/komodo-olives.xml"
