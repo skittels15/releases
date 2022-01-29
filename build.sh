@@ -8,7 +8,7 @@ if [ "${jenkins}" == "true" ]; then
 else
     telegram -M "Начата сборка для ${device}"
 fi
-source build/envsetup.sh
+source . build/envsetup.sh
 source "${my_dir}/config.sh"
 if [ "${official}" == "true" ]; then
     export CUSTOM_BUILD_TYPE="OFFICIAL"
@@ -32,7 +32,7 @@ elif [ "${clean}" == "installclean" ]; then
 else
     rm "${outdir}"/*$(date +%Y)*.zip*
 fi
-mka "${bacon}"
+mka "${bacon}" -j$(nproc --all)
 BUILD_END=$(date +"%s")
 BUILD_DIFF=$((BUILD_END - BUILD_START))
 
