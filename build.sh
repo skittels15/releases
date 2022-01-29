@@ -8,7 +8,7 @@ if [ "${jenkins}" == "true" ]; then
 else
     telegram -M "Начата сборка для ${device}"
 fi
-source . build/envsetup.sh
+source .build/envsetup.sh
 source "${my_dir}/config.sh"
 if [ "${official}" == "true" ]; then
     export CUSTOM_BUILD_TYPE="OFFICIAL"
